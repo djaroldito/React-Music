@@ -51,7 +51,7 @@ function App() {
             const tokenRequest = axios.post(
               'https://accounts.spotify.com/api/token',
               `grant_type=client_credentials&client_id=${id}&client_secret=${client}`,
-              // 'grant_type=client_credentials&client_id=443be7ab71f04543975db39cd73764ba&client_secret=6f1c2ca587484f19aaa217a19cb19acb',
+             
               {
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
