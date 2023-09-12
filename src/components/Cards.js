@@ -2,8 +2,9 @@ import React from 'react'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import loading from '../loading.gif'
 
-const Cards = ({searchResult, searchResult2, setSearchResult, setSearchResult2, setTracks, getTracks}) => {
+const Cards = ({searchResult, searchResult2, setSearchResult, setSearchResult2, setTracks, getTracks, tracks}) => {
  const ord = (arg)=> {
   arg.sort((a, b) => {
     return new Date(a.release_date) - new Date(b.release_date);
@@ -18,6 +19,7 @@ const Cards = ({searchResult, searchResult2, setSearchResult, setSearchResult2, 
    
   }
 
+
 ord(searchResult2)
 
 const settings = {
@@ -28,12 +30,31 @@ const settings = {
   slidesToScroll: 3
 };
 
+// if(searchResult2.length === 0 && searchResult.length === 0){
+//   console.log(searchResult2)
+//   return(
+//     <>
+//       <div className='list' >
+//         <div className='image-cont'>
+//         <img src={loading} alt='loa' />
+//         </div>
+//       </div>
+//     </>
+//   )
+// }
+
+
+
+
+
   return (
+    
+
     <>
      <div className='button-cont'>
         {
           
-          searchResult.length >= 1 || searchResult2.length >= 1 ?<button className='button' onClick={reset}>Back to recommendations</button>:null
+          searchResult.length >= 1 || searchResult2.length >= 1 ?<button className='button2' onClick={reset}>Back to recommendations</button>:<button className='button2' onClick={reset}>More recommended</button>
         }
        </div>
     <div className='carousel'>

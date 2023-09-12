@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import '../App.css'
-
+import loading from '../loading.gif'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,7 +19,7 @@ const HomeTracks = ({ tracks }) => {
           
 
           const artist = (arg)=>{
-            console.log(arg)
+           // console.log(arg)
             if(arg.length > 1)
             {
                 let names = arg.map((el)=>el.name)
@@ -32,14 +32,20 @@ const HomeTracks = ({ tracks }) => {
             
           }
          
-        //   useEffect(() => {
+        //   if (Object.values(tracks).length===0){
+        //     return(
+        //       <>
             
-        //  getTracks()
-         
-           
-          
-          
-        //   }, []);
+        //     <div className='container2'>
+        //       <div className='list'>
+        //         <img className='detail-image' src={loading} alt='ban' />
+        //       </div>  
+             
+        //     </div>
+        //     </>
+            
+        //     )
+        // }
 
          
   return (
@@ -47,7 +53,7 @@ const HomeTracks = ({ tracks }) => {
     <div className='carousel'>
 
        <div className='title'>
-       <h1>Arielito's Recommended Rock songs!!!</h1>
+       <h1>Arielito's Recommended Pop songs!!!</h1>
        </div>
        <Slider {...settings}>
       

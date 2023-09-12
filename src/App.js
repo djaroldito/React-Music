@@ -13,8 +13,8 @@ const id = process.env.REACT_APP_ID
 const client = process.env.REACT_APP_CLIENT
 
 // const client = process.env.CLIENT 
- console.log(id)
- console.log(client)
+// console.log(id)
+// console.log(client)
 
 
 function App() {
@@ -78,7 +78,7 @@ function App() {
       },
       params: {
         limit: 10, // Limitamos a 10 canciones
-        seed_genres: 'rock', // Género de las recomendaciones
+        seed_genres: 'pop', // Género de las recomendaciones
       },
     })
     //console.log(response)
@@ -97,9 +97,21 @@ function App() {
     },[token])
 
   
-   console.log(token)
-   console.log(tracks)
-  if(token === null || Object.values(tracks)===0){
+   //console.log(token)
+   //console.log(tracks)
+  // if(token === null || Object.values(tracks)===0){
+  //   return(
+  //     <>
+  //       <div className='list' >
+  //         <div className='image-cont'>
+  //         <img src={loading} alt='loa' />
+  //         </div>
+  //       </div>
+  //     </>
+  //   )
+  // }
+  if(token === null ){
+    
     return(
       <>
         <div className='list' >
@@ -109,22 +121,45 @@ function App() {
         </div>
       </>
     )
-  }else{
+  }
+  
+  else if(tracks.length === 0 && searchResult.length === 0 && searchResult2.length === 0 ){
+    //console.log(tracks)
+    
+    return(
+      <>
+      <div className='container'>
+        <SearchBar />
+        <SearchBar2 />
+      </div>
+        <div  >
+          <div className='image-cont'>
+          <img src={loading} alt='loa' />
+          </div>
+        </div>
+      </>
+    )
+  }
+
+ 
+
+  else{
 
 
   return (
     <div>
    
      <div className='container'>
-      <SearchBar onSearchResults={handleResult}
-    token={token} setSearchResult={setSearchResult} setSearchResult2={setSearchResult2} />
-      <SearchBar2 onSearchResults2={handleResult2} onSearchResults={handleResult}
+     <SearchBar onSearchResults={handleResult} tracks={tracks} setTracks={setTracks}
+    token={token}  />
+
+
+      <SearchBar2 onSearchResults2={handleResult2} tracks={tracks} setTracks={setTracks}
     token={token} />
      </div>
 
-      <Cards searchResult={searchResult} setSearchResult={setSearchResult} 
-      searchResult2={searchResult2} setSearchResult2={setSearchResult2} setTracks={setTracks} getTracks={getTracks}  /> 
-       {searchResult.length >= 1 || searchResult2.length >= 1  ? '' :
+     {searchResult.length >= 1 || searchResult2.length >= 1  ?<Cards searchResult={searchResult} setSearchResult={setSearchResult} 
+      searchResult2={searchResult2} setSearchResult2={setSearchResult2} setTracks={setTracks} getTracks={getTracks} tracks={tracks}  /> : 
        <HomeTracks tracks={tracks}   />
   }
     
