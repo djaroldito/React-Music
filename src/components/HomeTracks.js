@@ -9,14 +9,39 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const HomeTracks = ({ tracks }) => {
 
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 3
+  // };
+       
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToShow: 3, // Muestra 3 elementos en pantallas más grandes
+    slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 768, // Define el punto de quiebre para dispositivos móviles
+        settings: {
+          slidesToShow: 2, // Muestra 2 elementos en dispositivos móviles
+          slidesToScroll: 1.5,
+         
+        },
+      },
+    ],
   };
-          
+    const cut =(arg)=>{
+    let res = arg.split(' ')
+    let res1 = res.splice(0,6)
+    return res1.join(' ') 
+   
+           }
+ 
+ 
 
           const artist = (arg)=>{
            // console.log(arg)
@@ -58,11 +83,11 @@ const HomeTracks = ({ tracks }) => {
        <Slider {...settings}>
       
         {tracks.map((el) => (
-          <div className="carousel-item"  key={el.id}>
+          <div className="carousel-item1"  key={el.id}>
             
-          <h3>{el.name}</h3>
+          <h3>{cut(el.name)}</h3>
+          <img className="image" src={el.album.images[0].url} alt='alb' />
           <p>{artist(el.artists)}</p>
-          <img className="carousel-image" src={el.album.images[0].url} alt='alb' />
             
           </div>  
         ))}
