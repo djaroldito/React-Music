@@ -23,12 +23,16 @@ const HomeTracks = ({ tracks }) => {
     speed: 500,
     slidesToShow: 3, // Muestra 3 elementos en pantallas más grandes
     slidesToScroll: 2,
+  
     responsive: [
       {
         breakpoint: 768, // Define el punto de quiebre para dispositivos móviles
         settings: {
+          infinite: false,
           slidesToShow: 2, // Muestra 2 elementos en dispositivos móviles
-          slidesToScroll: 1.5,
+          slidesToScroll: 1 ,
+          swipeToSlide: true
+  
          
         },
       },
@@ -57,22 +61,7 @@ const HomeTracks = ({ tracks }) => {
             
           }
          
-        //   if (Object.values(tracks).length===0){
-        //     return(
-        //       <>
             
-        //     <div className='container2'>
-        //       <div className='list'>
-        //         <img className='detail-image' src={loading} alt='ban' />
-        //       </div>  
-             
-        //     </div>
-        //     </>
-            
-        //     )
-        // }
-
-         
   return (
     // <Slider {...settings}>
     <div className='carousel'>

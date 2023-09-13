@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useRef} from 'react'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -43,12 +43,16 @@ const settings = {
   speed: 500,
   slidesToShow: 3, // Muestra 3 elementos en pantallas más grandes
   slidesToScroll: 2,
+
   responsive: [
     {
       breakpoint: 768, // Define el punto de quiebre para dispositivos móviles
       settings: {
+        infinite: false,
         slidesToShow: 2, // Muestra 2 elementos en dispositivos móviles
-        slidesToScroll: 1.5,
+        slidesToScroll: 1 ,
+        swipeToSlide: true
+
        
       },
     },
