@@ -18,7 +18,7 @@ const HomeTracks = ({ tracks }) => {
   // };
        
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3, // Muestra 3 elementos en pantallas más grandes
