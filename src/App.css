@@ -253,7 +253,7 @@ a{
   border: none;
   outline: none;
   padding: 8px;
-  width: 470px;
+  width: 460px;
 }
 
 .input-container button {
@@ -282,7 +282,7 @@ a{
   padding: 10px; */
   text-align: center;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   margin-top: 2px;
   border: none;
 }
@@ -294,7 +294,7 @@ a{
   padding: 10px; */
   text-align: center;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   margin-top: 2px;
   border: none;
   
